@@ -28,7 +28,7 @@ function updateCustomerPaymentProfile($customerProfileId = "1916322670",
 	$response = $controller->executeWithApiResponse( \net\authorize\api\constants\ANetEnvironment::SANDBOX);
 	if (($response != null) && ($response->getMessages()->getResultCode() == "Ok"))
 	{
-		$billto = new AnetAPI\CustomerAddressType();
+		// Response is AnetAPI\CustomerAddressType();
 		$billto = $response->getPaymentProfile()->getbillTo();
 		
 		$creditCard = new AnetAPI\CreditCardType();
