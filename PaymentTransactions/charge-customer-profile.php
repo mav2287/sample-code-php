@@ -37,10 +37,9 @@ function chargeCustomerProfile($profileid, $paymentprofileid, $amount)
 
     if ($response != null)
     {
+      $tresponse = $response->getTransactionResponse();
       if($response->getMessages()->getResultCode() == "Ok")
-      {
-        $tresponse = $response->getTransactionResponse();
-        
+      {      
 	      if ($tresponse != null && $tresponse->getMessages() != null)   
         {
           echo " Transaction Response code : " . $tresponse->getResponseCode() . "\n";
@@ -63,7 +62,6 @@ function chargeCustomerProfile($profileid, $paymentprofileid, $amount)
       else
       {
         echo "Transaction Failed \n";
-        $tresponse = $response->getTransactionResponse();
         if($tresponse != null && $tresponse->getErrors() != null)
         {
           echo " Error code  : " . $tresponse->getErrors()[0]->getErrorCode() . "\n";
