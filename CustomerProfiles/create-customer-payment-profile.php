@@ -52,8 +52,6 @@ function createCustomerPaymentProfile($existingcustomerprofileid, $phoneNumber)
     $paymentprofile->setPayment($paymentCreditCard);
     $paymentprofile->setDefaultPaymentProfile(true);
 
-    $paymentprofiles[] = $paymentprofile;
-
     // Assemble the complete transaction request
     $paymentprofilerequest = new AnetAPI\CreateCustomerPaymentProfileRequest();
     $paymentprofilerequest->setMerchantAuthentication($merchantAuthentication);
